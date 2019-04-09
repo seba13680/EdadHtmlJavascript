@@ -1,0 +1,99 @@
+<html>
+<title>
+Consultar nombre y edad
+</title>
+<body>
+<table>
+  <tr>
+    <td>Ingrese su nombre:</td>
+    <td><input id="nombre"></input></td> 
+  </tr>
+  <tr>
+    <td>Ingrese su edad:</td>
+    <td><input id="edad"></input></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><button onclick="consultaEdad()">Consultar</button></td>
+  </tr>
+</table>
+
+<h2 id="mensaje"></h2>
+
+<script>
+function consultaEdad() {
+
+// Verifica que los campos tengan datos
+if ((document.getElementById("nombre").value.length == 0) || (document.getElementById("edad").value.length == 0)) 
+	{
+    alert('Falta ingresar nombre o edad'); 
+    return;
+    }
+
+var edad = parseInt(document.getElementById("edad").value);
+var nombre = document.getElementById("nombre").value;
+
+//2) Si la edad es menor o igual a 0, que diga:
+//        Eugenio, no naciste
+if(edad <= 0)
+	{
+	mensaje.innerHTML = nombre + " no naciste"; 
+	}
+
+//3) Si la edad es menos de 20, que diga
+//	Hola Eugenio, eres un niño
+if(edad >0 && edad < 20)
+	{
+	mensaje.innerHTML = "Hola " + nombre + ", eres un niño";
+	}
+
+//4) Si tiene entre 20 y 30, que diga:
+//	Hola Eugenio, tienes que aprovechar el tiempo.
+if(edad >= 20 && edad <= 30)
+	{
+	mensaje.innerHTML = "Hola " + nombre + ", tienes que aprovechar el tiempo.";
+	}
+
+//5) Si tiene entre entre 30 y 50, que diga:
+//	Buen dia Eugenio, usted ya es una persona mayor
+if(edad >= 30 && edad <= 50)
+	{
+	mensaje.innerHTML = "Buen día " + nombre + ", usted ya es una persona mayor";
+	}
+
+//6) Si tiene mas de 50 y 65, que diga:
+//	Buenos dias Eugenio, aproche el tiempo antes de jubilarse
+if(edad >= 50 && edad <= 65)
+	{
+	mensaje.innerHTML = "Buenos días " + nombre + ", aproveche el tiempo antes de jubilarse";
+	}
+
+//7) Si la edad es entre 65 y 100, que diga
+//        Eugenio, ya sos un jubilado
+if(edad >= 65 && edad <= 100)
+	{
+	mensaje.innerHTML = "Buenos días " + nombre + ", ya sos un jubilado";
+	}
+
+//8) Si la edad es mayor a 100, que diga
+//        Eugenio estás hecho un Matusalén
+if(edad > 100)
+	{
+	mensaje.innerHTML = nombre + " estás hecho un Matusalén";
+	}
+
+
+//9) Si el texto ingresado no es un número, que diga
+//        Eugenio ponete serio e ingresá un número
+
+// Verifica que la edad ingresada es un numero
+if (isNaN(parseInt(document.getElementById("edad").value))) 
+	{
+    alert(nombre + ' ponete serio e ingresá un número');
+	return;
+	}
+
+}
+</script>
+</body>
+</html>
